@@ -49,6 +49,11 @@
 ```
 
 
+```
+  npm install 之后 还需要 yarn add
+```
+
+
 
 
 
