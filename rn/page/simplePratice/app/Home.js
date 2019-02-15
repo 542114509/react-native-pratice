@@ -9,27 +9,16 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Platform, StyleSheet, Text, View, Button, WebView } from 'react-native';
-import CDialog from '../components/Dialog'
-import CHeader from '../components/Header'
-import CWebview from '../components/Webview'
-import { AppNavigator } from './AppNavigator'
-import { toggleDialog } from '../store/action'
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import { windowSize } from '../../../common/Util'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 @connect()
 export default class App extends React.Component {
   constructor (props) {
     super(props);
 
     this.state = {
-      webViewOpenStatus: false
+     
     }
   }
 
@@ -38,13 +27,15 @@ export default class App extends React.Component {
   }
 
   handleChangeText = () => {
-
+    this.props.navigation.navigate('web')
   }
 
   render() {
+    console.log(this.props)
     return (
-      <View style={styles.container}>
-        <AppNavigator />
+      <View>
+        <Text>我是主页</Text>
+        <Button title="点我切换到webview" onPress={this.handleChangeText}></Button>
       </View>
     );
   }

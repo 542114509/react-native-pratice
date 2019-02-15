@@ -9,12 +9,12 @@
 
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, Modal } from 'react-native';
 import { toggleDialog } from '../store/action'
 
 const mapStateToProps = state => {
   return {
-    ...state.app.dialogConf
+    ...state.dialogConf
   }
 }
 
@@ -25,7 +25,7 @@ export default class Dialog extends React.Component {
   }
 
   handleChangeText = () => {
-    this.props.dispatch(toggleDialog({ vis: false, text: '点击了' }))
+    this.props.dispatch(toggleDialog({ vis: false, text: '关闭弹窗' }))
   }
 
   componentDidMount () {
@@ -33,20 +33,39 @@ export default class Dialog extends React.Component {
   }
 
   render() {
-    const { text } = this.props
+    const { text, vis } = this.props
     return (
+      <Modal
+        style={styles.mask}
+        animationType="fade"
+        transparent={true}
+        visible={vis}
+        hardwareAccelerated={true}
+        onRequestClose={this.handleChangeText}
+      >
       <View style={styles.container}>
         <Text>{ text }</Text>
-        <Button title="点我" onPress={this.handleChangeText}></Button>
+        <Button title="点我关闭" onPress={this.handleChangeText}></Button>
       </View>
+      </Modal>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  mask: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    // backgroundColor: 'gray'
+  },
   container: {
     width: 200,
     height: 200,
-    backgroundColor: '#ccc'
+    marginTop: 300,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   }
 });

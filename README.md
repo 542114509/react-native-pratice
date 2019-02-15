@@ -53,7 +53,18 @@
   npm install 之后 还需要 yarn add
 ```
 
+```
+  RN 原生组件Modal onRequestClose 安卓平台必填 后退键触发
+```
 
+```
+  debuggerui 报 Uncaught TypeError: Cannot set property 'volume' of null
+  
+```
+
+```
+  默认背景色是黑色 需要在全局改背景色
+```
 
 
 
