@@ -8,19 +8,10 @@
  */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Platform, StyleSheet, Text, View, Button, WebView } from 'react-native';
+import { StyleSheet, WebView } from 'react-native';
 import CWebview from '../components/Webview'
-import { toggleDialog } from '../store/action'
 import { windowSize } from '../../../common/Util'
 
-const mapStateToProps = state => {
-  return {
-    ...state.webview
-  }
-}
-
-@connect(mapStateToProps)
 export default class WebScreen extends React.Component {
   constructor (props) {
     super(props);
@@ -31,7 +22,7 @@ export default class WebScreen extends React.Component {
   }
 
   componentDidMount () {
-
+    
   }
 
   handleChangeText = () => {
@@ -40,10 +31,6 @@ export default class WebScreen extends React.Component {
 
   render() {
     const { webview, navigation } = this.props
-    return <CWebview navigation={navigation} url={webview.url}/>
+    return <CWebview navigation={navigation} url={navigation.state.params.url}/>
   }
 }
-
-const styles = StyleSheet.create({
-  
-});

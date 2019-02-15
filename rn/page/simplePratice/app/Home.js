@@ -27,7 +27,9 @@ export default class App extends React.Component {
   }
 
   handleChangeText = () => {
-    this.props.navigation.navigate('web')
+    this.props.navigation.navigate('web', { 
+      url: 'https://www.jianshu.com/p/e1e310bb0ab9' 
+    })
   }
 
   render() {

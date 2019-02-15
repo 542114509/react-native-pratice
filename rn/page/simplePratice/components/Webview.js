@@ -20,12 +20,9 @@ export default class WebviewComp extends React.Component {
   }
 
   handleChangeWebviewConfig = config => {
-    console.log(config.title)
-    console.log(this.props.navigation)
-    this.props.navigation.setParams({
+    this.props.navigation.setParams({ // 设定webview标题
       title: config.title
     })
-    console.log('after', this.props.navigation)
   }
 
   render() {
@@ -43,7 +40,7 @@ export default class WebviewComp extends React.Component {
 
 const styles = StyleSheet.create({
   wrap: {
-    height: windowSize.height,
+    height: windowSize.height - 60, // 减去导航bar的高度
     width: windowSize.width,
   },
 });
