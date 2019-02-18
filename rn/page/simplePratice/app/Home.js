@@ -9,7 +9,8 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import Cbanner from './banner'
 import { windowSize } from '../../../common/Util'
 
 @connect()
@@ -23,22 +24,19 @@ export default class App extends React.Component {
   }
 
   componentDidMount () {
-
+    
   }
 
-  handleChangeText = () => {
-    this.props.navigation.navigate('web', { 
-      url: 'https://www.jianshu.com/p/e1e310bb0ab9' 
-    })
+  handleChangeText = (type, url) => {
+    this.props.navigation.navigate(type, { url })
   }
 
   render() {
-    console.log(this.props)
     return (
-      <View>
-        <Text>我是主页</Text>
-        <Button title="点我切换到webview" onPress={this.handleChangeText}></Button>
-      </View>
+      <ScrollView>
+        <Text style={styles.instructions}>我是主页</Text>
+        <Cbanner onSkip={this.handleChangeText} />
+      </ScrollView>
     );
   }
 }
@@ -58,6 +56,7 @@ const styles = StyleSheet.create({
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginBottom: 45,
+    marginTop: 45,
   },
 });

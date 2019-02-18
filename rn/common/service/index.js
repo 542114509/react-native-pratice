@@ -1,0 +1,5 @@
+class serviceRequest {
+  constructor (opts = {}) {
+
+  }
+}

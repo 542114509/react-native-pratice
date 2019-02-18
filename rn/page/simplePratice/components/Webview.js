@@ -1,7 +1,7 @@
 /**
  * @author songjf
  * @time 2019 02 15
- * @name Webview组件
+ * @name Webview 底层组件
  * @param { url }
  */
 import React, {Component} from 'react';

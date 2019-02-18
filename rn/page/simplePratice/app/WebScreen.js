@@ -1,12 +1,9 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
+ * @author songjf
+ * @time 2019 02 18
+ * @name Webview 业务层复用组件
+ * @param
  */
-
 import React, { Component } from 'react';
 import { StyleSheet, WebView } from 'react-native';
 import CWebview from '../components/Webview'

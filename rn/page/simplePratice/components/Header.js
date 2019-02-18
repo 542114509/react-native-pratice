@@ -8,7 +8,7 @@
  */
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Platform, Text, View, StatusBar } from 'react-native';
 import { windowSize } from '../../../common/Util'
 
 export default class Header extends React.Component {
@@ -17,7 +17,7 @@ export default class Header extends React.Component {
   }
 
   componentDidMount () {
-
+    console.log(Platform)
   }
 
   render() {
